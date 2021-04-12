@@ -15,6 +15,9 @@ import converter from "number-to-words";
 import DarkModeToggle from "react-dark-mode-toggle";
 import ResultsRows from "./components/ResultsRows/index";
 
+/* Function inWords convert number to words - without package or api */
+import { inWords } from "./utils";
+
 const App = () => {
   /* initialization - states  */
   const [number, setNumber] = useState();
@@ -36,6 +39,8 @@ const App = () => {
     if (isNumeric(number)) {
       /* Adding the number to history */
       let numberConvert = converter.toWords(number);
+      /* For using the function inWords from utils */
+      //let numberConvert = inWords(number);
       const timestamp = new Date().toString();
       const values = [...historyArr];
       values.push({ number, numberConvert, timestamp });
