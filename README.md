@@ -4,6 +4,10 @@
 
 In the project directory, you can run:
 
+### `npm i`
+
+In the root direcotry path of the project , run this 'npm i' command to 
+install all the node_modules exist in the package-lock.json.
 
 
 
