@@ -14,10 +14,17 @@ export function numberToEnglish(n, custom_join_character) {
     words;
 
   var and = custom_join_character || "and";
+  var isNegative = false;
 
   /* Is number zero? */
   if (parseInt(string) === 0) {
     return "zero";
+  }
+
+  /* Is negative */
+  if (string[0] === "-") {
+    string = string.slice(0, 0) + string.slice(1);
+    isNegative = true;
   }
 
   /* Array of units as words */
@@ -163,6 +170,11 @@ export function numberToEnglish(n, custom_join_character) {
         words.splice(2, 1);
       }
     }
+  }
+
+  /* If number is negative*/
+  if (isNegative) {
+    words.push("Minus");
   }
 
   return words.reverse().join(" ");
