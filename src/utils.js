@@ -145,12 +145,12 @@ export function numberToEnglish(n, custom_join_character) {
     }
   }
 
-  /* Take Care to numbers size=1 */
+  /* handle Care to numbers size=1 */
   if (string.length === 1) {
     words.splice(1, 1);
   }
 
-  /* Take Care to numbers size=2 */
+  /* handle to numbers size=2 */
   if (string.length === 2) {
     if (words.length === 4 && words.includes("-")) {
       words.splice(3, 1);
