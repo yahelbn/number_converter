@@ -16,7 +16,7 @@ import DarkModeToggle from "react-dark-mode-toggle";
 import ResultsRows from "./components/ResultsRows/index";
 
 /* Function inWords convert number to words - without package or api */
-import { inWords } from "./utils";
+import { numberToEnglish } from "./utils";
 
 const App = () => {
   /* initialization - states  */
@@ -38,9 +38,12 @@ const App = () => {
     /* Check if input-number is a number */
     if (isNumeric(number)) {
       /* Adding the number to history */
-      let numberConvert = converter.toWords(number);
-      /* For using the function inWords from utils */
-      //let numberConvert = inWords(number);
+      let numberConvert = numberToEnglish(number);
+      numberConvert =
+        numberConvert.charAt(0).toUpperCase() + numberConvert.slice(1);
+      console.log(numberConvert);
+      /* For using the function inWords from utils from api , but its not appropriate to output*/
+      //let numberConvert = converter.toWords(number);
       const timestamp = new Date().toString();
       const values = [...historyArr];
       values.push({ number, numberConvert, timestamp });
@@ -95,7 +98,7 @@ const App = () => {
           {currentResult && (
             <Label isDarkMode={isDarkMode}>
               The number {currentResult.number} , in words:
-              {currentResult.numberConvert}
+              {" " + currentResult.numberConvert}
             </Label>
           )}
           <StyledButton
